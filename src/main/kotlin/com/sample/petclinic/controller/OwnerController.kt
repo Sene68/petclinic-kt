@@ -13,8 +13,8 @@ class OwnerController {
     fun owners(): List<OwnerData> {
         val owners = ArrayList<OwnerData>()
 
-        val owner1 = OwnerData("A dong", "Seoul", "010-1234-5678")
-        val owner2 = OwnerData("B dong", "Seoul", "010-5678-1234")
+        val owner1 = OwnerData(1,"Sene","68","A dong", "Seoul", "010-1234-5678")
+        val owner2 = OwnerData(2,"eneS","86","B dong", "Seoul", "010-5678-1234")
 
         owners.add(owner1)
         owners.add(owner2)
