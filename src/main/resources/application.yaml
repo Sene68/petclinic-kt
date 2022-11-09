@@ -1,5 +1,14 @@
 spring:
-  thymeleaf:
-    cache: false
-    prefix: classpath:templates/
-    check-template-location: true
+  jpa:
+    open-in-view: 'false'
+    hibernate:
+      ddl-auto: none
+  sql:
+    init:
+      schema-locations: classpath*:db/${database}/schema.sql
+      data-locations: classpath*:db/${database}/data.sql
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: deferred
+database: h2
