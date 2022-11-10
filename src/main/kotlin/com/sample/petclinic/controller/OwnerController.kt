@@ -1,24 +1,17 @@
 package com.sample.petclinic.controller
 
-import com.sample.petclinic.data.OwnerData
+import com.sample.petclinic.domain.Owner
+import com.sample.petclinic.repository.OwnerRepository
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/v1/owners")
-class OwnerController {
+class OwnerController(val ownerRepository: OwnerRepository) {
 
     @GetMapping
-    fun owners(): List<OwnerData> {
-        val owners = ArrayList<OwnerData>()
-
-        val owner1 = OwnerData(1,"Sene","68","A dong", "Seoul", "010-1234-5678")
-        val owner2 = OwnerData(2,"eneS","86","B dong", "Seoul", "010-5678-1234")
-
-        owners.add(owner1)
-        owners.add(owner2)
-
-        return owners
+    fun owners(): List<Owner> {
+        return ownerRepository.findAll()
     }
 }
