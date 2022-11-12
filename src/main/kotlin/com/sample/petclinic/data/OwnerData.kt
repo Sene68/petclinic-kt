@@ -1,12 +1,11 @@
 package com.sample.petclinic.data
 
 data class OwnerData(
-        val id: Int,
-        val firstName: String,
-        val lastName: String,
-        val address: String,
-        val city: String,
-        val telephone: String
+        var id: Int = 0,
+        var firstName: String = "",
+        var lastName: String = "",
+        var address: String = "",
+        var city: String = "",
+        var telephone: String = ""
 ) {
-
 }

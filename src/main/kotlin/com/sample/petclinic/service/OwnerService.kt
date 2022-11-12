@@ -1,7 +1,7 @@
 package com.sample.petclinic.service
 
-import com.sample.petclinic.domain.Owner
+import com.sample.petclinic.data.OwnerData
 
 interface OwnerService {
-    fun owners(): List<Owner>
+    fun owners(): List<OwnerData>
 }
