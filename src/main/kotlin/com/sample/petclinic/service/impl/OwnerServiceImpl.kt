@@ -14,6 +14,11 @@ class OwnerServiceImpl(val ownerRepository: OwnerRepository, val modelMapper: Mo
         return converts(owners)
     }
 
+    override fun owner(ownerId: Int): OwnerData {
+        val owner = ownerRepository.findById(ownerId)
+        return convert(owner)
+    }
+
     private fun converts(owners: List<Owner>): List<OwnerData> {
         val ownerDataList = ArrayList<OwnerData>()
 

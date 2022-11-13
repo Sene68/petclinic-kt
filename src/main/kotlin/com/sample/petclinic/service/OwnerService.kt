@@ -4,4 +4,6 @@ import com.sample.petclinic.data.OwnerData
 
 interface OwnerService {
     fun owners(): List<OwnerData>
+
+    fun owner(ownerId: Int): OwnerData
 }
