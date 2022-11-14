@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service
 class OwnerServiceImpl(val ownerRepository: OwnerRepository, val modelMapper: ModelMapper): OwnerService {
     override fun owners(): List<OwnerData> {
         val owners = ownerRepository.findAll()
-        return converts(owners)
+        return owners.map { OwnerData.fromEntity(it) }
     }
 
     override fun owner(ownerId: Int): OwnerData {
         val owner = ownerRepository.findById(ownerId)
-        return convert(owner)
+        return OwnerData.fromEntity(owner)
     }
 
     private fun converts(owners: List<Owner>): List<OwnerData> {

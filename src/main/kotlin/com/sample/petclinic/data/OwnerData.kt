@@ -1,11 +1,25 @@
 package com.sample.petclinic.data
 
+import com.sample.petclinic.domain.Owner
+
 data class OwnerData(
-        var id: Int = 0,
-        var firstName: String = "",
-        var lastName: String = "",
-        var address: String = "",
-        var city: String = "",
-        var telephone: String = ""
+        val id: Int,
+        val firstName: String,
+        val lastName: String,
+        val address: String,
+        val city: String,
+        val telephone: String
 ) {
+    companion object {
+        fun fromEntity(owner: Owner): OwnerData {
+            return OwnerData(
+                id = owner.id!!,
+                firstName = owner.firstname,
+                lastName = owner.lastName,
+                address = owner.address,
+                city = owner.city,
+                telephone = owner.telephone
+            )
+        }
+    }
 }
