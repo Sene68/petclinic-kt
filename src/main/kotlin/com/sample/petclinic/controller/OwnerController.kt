@@ -1,12 +1,8 @@
 package com.sample.petclinic.controller
 
-import com.sample.petclinic.data.FindOwnerParam
 import com.sample.petclinic.data.OwnerData
-import com.sample.petclinic.domain.Owner
-import com.sample.petclinic.repository.OwnerRepository
 import com.sample.petclinic.service.OwnerService
 import org.springframework.web.bind.annotation.*
-import javax.validation.Valid
 
 @RestController
 @RequestMapping("/api/v1/owners")

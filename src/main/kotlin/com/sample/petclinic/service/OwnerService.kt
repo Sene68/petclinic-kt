@@ -1,6 +1,5 @@
 package com.sample.petclinic.service
 
-import com.sample.petclinic.data.FindOwnerParam
 import com.sample.petclinic.data.OwnerData
 
 interface OwnerService {

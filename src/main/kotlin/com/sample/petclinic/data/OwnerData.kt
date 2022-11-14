@@ -1,8 +1,6 @@
 package com.sample.petclinic.data
 
 import com.sample.petclinic.domain.Owner
-import javax.validation.constraints.NotEmpty
-import javax.validation.constraints.NotNull
 
 data class OwnerData(
         val id: Int,
@@ -25,9 +23,3 @@ data class OwnerData(
         }
     }
 }
-
-data class FindOwnerParam(
-        @NotNull
-        @NotEmpty
-        val lastName: String
-)

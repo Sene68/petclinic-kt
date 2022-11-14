@@ -1,6 +1,5 @@
 package com.sample.petclinic.service.impl
 
-import com.sample.petclinic.data.FindOwnerParam
 import com.sample.petclinic.data.OwnerData
 import com.sample.petclinic.domain.Owner
 import com.sample.petclinic.repository.OwnerRepository
@@ -23,19 +22,5 @@ class OwnerServiceImpl(val ownerRepository: OwnerRepository, val modelMapper: Mo
     override fun findOwners(lastName: String): List<OwnerData> {
         val owners = ownerRepository.findAllByLastName(lastName)
         return owners.map { OwnerData.fromEntity(it) }
-    }
-
-    private fun converts(owners: List<Owner>): List<OwnerData> {
-        val ownerDataList = ArrayList<OwnerData>()
-
-        for (owner in owners) {
-            ownerDataList.add(convert(owner))
-        }
-
-        return ownerDataList
-    }
-
-    private fun convert(owner: Owner): OwnerData {
-        return modelMapper.map(owner, OwnerData::class.java)
     }
 }
