@@ -13,4 +13,7 @@ interface OwnerRepository: Repository<Owner, Int> {
     @Transactional(readOnly = true)
     fun findById(id: Int): Owner
 
+    @Transactional(readOnly = true)
+    fun findAllByLastName(lastName: String): List<Owner>
+
 }
