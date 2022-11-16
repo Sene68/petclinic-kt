@@ -23,4 +23,9 @@ class OwnerServiceImpl(val ownerRepository: OwnerRepository, val modelMapper: Mo
         val owners = ownerRepository.findAllByLastName(lastName)
         return owners.map { OwnerData.fromEntity(it) }
     }
+
+    override fun addOwner(owner: Owner): OwnerData {
+        val owner = ownerRepository.save(owner)
+        return OwnerData.fromEntity(owner)
+    }
 }

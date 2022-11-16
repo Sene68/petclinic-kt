@@ -9,7 +9,7 @@ open class Person: BaseEntity() {
 
     @Column(name= "first_name")
     @NotEmpty
-    var firstname = ""
+    var firstName = ""
 
     @Column(name = "last_name")
     @NotEmpty

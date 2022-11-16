@@ -1,6 +1,7 @@
 package com.sample.petclinic.data
 
 import com.sample.petclinic.domain.Owner
+import javax.validation.constraints.NotBlank
 
 data class OwnerData(
         val id: Int,
@@ -14,7 +15,7 @@ data class OwnerData(
         fun fromEntity(owner: Owner): OwnerData {
             return OwnerData(
                 id = owner.id!!,
-                firstName = owner.firstname,
+                firstName = owner.firstName,
                 lastName = owner.lastName,
                 address = owner.address,
                 city = owner.city,
