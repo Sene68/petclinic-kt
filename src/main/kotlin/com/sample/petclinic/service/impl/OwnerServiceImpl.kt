@@ -1,7 +1,8 @@
 package com.sample.petclinic.service.impl
 
+import com.sample.petclinic.data.AddOwnerParam
 import com.sample.petclinic.data.OwnerData
-import com.sample.petclinic.domain.Owner
+import com.sample.petclinic.data.toEntity
 import com.sample.petclinic.repository.OwnerRepository
 import com.sample.petclinic.service.OwnerService
 import org.modelmapper.ModelMapper
@@ -24,8 +25,8 @@ class OwnerServiceImpl(val ownerRepository: OwnerRepository, val modelMapper: Mo
         return owners.map { OwnerData.fromEntity(it) }
     }
 
-    override fun addOwner(owner: Owner): OwnerData {
-        val owner = ownerRepository.save(owner)
+    override fun addOwner(addOwnerParam: AddOwnerParam): OwnerData {
+        val owner = ownerRepository.save(addOwnerParam.toEntity())
         return OwnerData.fromEntity(owner)
     }
 }

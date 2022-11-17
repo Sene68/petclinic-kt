@@ -1,5 +1,6 @@
 package com.sample.petclinic.controller
 
+import com.sample.petclinic.data.AddOwnerParam
 import com.sample.petclinic.data.OwnerData
 import com.sample.petclinic.domain.Owner
 import com.sample.petclinic.service.OwnerService
@@ -26,7 +27,7 @@ class OwnerController(val ownerService: OwnerService) {
     }
 
     @PostMapping("/new")
-    fun addOwner(@Valid owner: Owner): OwnerData {
-        return ownerService.addOwner(owner)
+    fun addOwner(@Valid addOwnerParam: AddOwnerParam): OwnerData {
+        return ownerService.addOwner(addOwnerParam)
     }
 }

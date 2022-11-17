@@ -1,24 +1,26 @@
 package com.sample.petclinic.domain
 
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Table
-import javax.validation.constraints.Digits
-import javax.validation.constraints.NotEmpty
+import javax.persistence.*
 
 @Entity
 @Table(name = "owners")
-class Owner: Person() {
-    @Column(name = "address")
-    @NotEmpty
-    var address = ""
+class Owner(
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        var id: Int? = null,
 
-    @Column(name = "city")
-    @NotEmpty
-    var city = ""
+        @Column(name= "first_name")
+        var firstName: String? = null,
 
-    @Column(name = "telephone")
-    @NotEmpty
-    @Digits(fraction = 0, integer = 10)
-    var telephone = ""
-}
+        @Column(name = "last_name")
+        var lastName: String? = null,
+
+        @Column(name = "address")
+        var address: String? = null,
+
+        @Column(name = "city")
+        var city: String? = null,
+
+        @Column(name = "telephone")
+        var telephone: String? = null,
+)
