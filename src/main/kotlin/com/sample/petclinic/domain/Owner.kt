@@ -5,10 +5,6 @@ import javax.persistence.*
 @Entity
 @Table(name = "owners")
 class Owner(
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: Int? = null,
-
         @Column(name= "first_name")
         var firstName: String? = null,
 
@@ -23,4 +19,4 @@ class Owner(
 
         @Column(name = "telephone")
         var telephone: String? = null,
-)
+): BaseEntity()
