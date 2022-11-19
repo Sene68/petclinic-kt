@@ -29,4 +29,12 @@ class OwnerServiceImpl(val ownerRepository: OwnerRepository, val modelMapper: Mo
         val owner = ownerRepository.save(addOwnerParam.toEntity())
         return OwnerData.fromEntity(owner)
     }
+
+    override fun editOwner(ownerId: Int, editOwnerParam: AddOwnerParam): OwnerData {
+        val owner = ownerRepository.findById(ownerId)
+        owner.updateOwner(editOwnerParam)
+        ownerRepository.save(owner)
+
+        return OwnerData.fromEntity(owner)
+    }
 }

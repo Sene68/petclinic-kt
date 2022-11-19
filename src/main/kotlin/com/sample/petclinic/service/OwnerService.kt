@@ -12,4 +12,6 @@ interface OwnerService {
     fun findOwners(lastName: String): List<OwnerData>
 
     fun addOwner(addOwnerParam: AddOwnerParam): OwnerData
+
+    fun editOwner(ownerId: Int, editOwnerParam: AddOwnerParam): OwnerData
 }
