@@ -1,6 +1,7 @@
 package com.sample.petclinic.controller
 
 import com.sample.petclinic.data.AddOwnerParam
+import com.sample.petclinic.data.EditOwnerParam
 import com.sample.petclinic.data.OwnerData
 import com.sample.petclinic.service.OwnerService
 import org.springframework.web.bind.annotation.*
@@ -31,7 +32,7 @@ class OwnerController(val ownerService: OwnerService) {
     }
 
     @PostMapping("/{ownerId}/edit")
-    fun editOwner(@PathVariable("ownerId") ownerId: Int, @Valid editOwnerParam: AddOwnerParam) : OwnerData {
+    fun editOwner(@PathVariable("ownerId") ownerId: Int, @Valid editOwnerParam: EditOwnerParam) : OwnerData {
         return ownerService.editOwner(ownerId, editOwnerParam)
     }
 }

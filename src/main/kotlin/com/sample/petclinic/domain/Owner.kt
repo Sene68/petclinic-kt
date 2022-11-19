@@ -1,6 +1,7 @@
 package com.sample.petclinic.domain
 
 import com.sample.petclinic.data.AddOwnerParam
+import com.sample.petclinic.data.EditOwnerParam
 import javax.persistence.*
 
 @Entity
@@ -22,11 +23,11 @@ class Owner(
         var telephone: String? = null,
 ): BaseEntity() {
 
-        fun updateOwner(editOwnerParam: AddOwnerParam) {
-                this.firstName = editOwnerParam.firstName
-                this.lastName = editOwnerParam.lastName
-                this.address = editOwnerParam.address
-                this.city = editOwnerParam.city
-                this.telephone = editOwnerParam.telephone
+        fun updateOwner(editOwnerParam: EditOwnerParam) {
+                this.firstName = editOwnerParam.firstName ?: this.firstName
+                this.lastName = editOwnerParam.lastName ?: this.lastName
+                this.address = editOwnerParam.address ?: this.address
+                this.city = editOwnerParam.city ?: this.city
+                this.telephone = editOwnerParam.telephone ?: this.telephone
         }
 }

@@ -39,3 +39,11 @@ fun AddOwnerParam.toEntity() = Owner(
         city = city,
         telephone = telephone
 )
+
+data class EditOwnerParam(
+    val firstName: String?,
+    val lastName: String?,
+    val address: String?,
+    val city: String?,
+    val telephone: String?
+)
