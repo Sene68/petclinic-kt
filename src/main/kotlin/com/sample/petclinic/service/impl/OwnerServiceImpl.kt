@@ -10,7 +10,7 @@ import org.modelmapper.ModelMapper
 import org.springframework.stereotype.Service
 
 @Service
-class OwnerServiceImpl(val ownerRepository: OwnerRepository, val modelMapper: ModelMapper): OwnerService {
+class OwnerServiceImpl(val ownerRepository: OwnerRepository): OwnerService {
     override fun owners(): List<OwnerData> {
         val owners = ownerRepository.findAll()
         return owners.map { OwnerData.fromEntity(it) }
