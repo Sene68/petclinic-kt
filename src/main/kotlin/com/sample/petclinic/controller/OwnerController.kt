@@ -3,6 +3,7 @@ package com.sample.petclinic.controller
 import com.sample.petclinic.data.AddOwnerParam
 import com.sample.petclinic.data.EditOwnerParam
 import com.sample.petclinic.data.OwnerData
+import com.sample.petclinic.data.OwnerInfo
 import com.sample.petclinic.service.OwnerService
 import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
@@ -17,7 +18,7 @@ class OwnerController(val ownerService: OwnerService) {
     }
 
     @GetMapping("/{ownerId}")
-    fun owner(@PathVariable("ownerId") ownerId: Int): OwnerData {
+    fun owner(@PathVariable("ownerId") ownerId: Int): OwnerInfo {
         return ownerService.owner(ownerId);
     }
 

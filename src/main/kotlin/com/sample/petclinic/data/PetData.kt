@@ -23,5 +23,22 @@ data class PetData(
             )
         }
     }
+}
 
+data class PetInfo(
+        val id: Int,
+        val name: String?,
+        val birthDate: LocalDate?,
+        val type: PetType?,
+) {
+    companion object {
+        fun fromEntity(pet: Pet): PetInfo {
+            return PetInfo(
+                    id = pet.id!!,
+                    name = pet.name,
+                    birthDate = pet.birthDate,
+                    type = pet.type
+            )
+        }
+    }
 }

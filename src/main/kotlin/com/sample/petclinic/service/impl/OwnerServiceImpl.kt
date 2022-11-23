@@ -1,12 +1,8 @@
 package com.sample.petclinic.service.impl
 
-import com.sample.petclinic.data.AddOwnerParam
-import com.sample.petclinic.data.EditOwnerParam
-import com.sample.petclinic.data.OwnerData
-import com.sample.petclinic.data.toEntity
+import com.sample.petclinic.data.*
 import com.sample.petclinic.repository.OwnerRepository
 import com.sample.petclinic.service.OwnerService
-import org.modelmapper.ModelMapper
 import org.springframework.stereotype.Service
 
 @Service
@@ -16,9 +12,10 @@ class OwnerServiceImpl(val ownerRepository: OwnerRepository): OwnerService {
         return owners.map { OwnerData.fromEntity(it) }
     }
 
-    override fun owner(ownerId: Int): OwnerData {
+    override fun owner(ownerId: Int): OwnerInfo {
         val owner = ownerRepository.findById(ownerId)
-        return OwnerData.fromEntity(owner)
+        val pets = owner.pets.map { PetInfo.fromEntity(it) }
+        return OwnerInfo.fromEntity(owner, pets)
     }
 
     override fun findOwners(lastName: String): List<OwnerData> {

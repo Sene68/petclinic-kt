@@ -1,5 +1,6 @@
 package com.sample.petclinic.domain
 
+import com.fasterxml.jackson.annotation.JsonBackReference
 import org.springframework.format.annotation.DateTimeFormat
 import java.time.LocalDate
 import javax.persistence.*
@@ -18,6 +19,7 @@ class Pet(
         @JoinColumn(name = "type_id")
         var type: PetType? = null,
 
+        @JsonBackReference
         @ManyToOne
         @JoinColumn(name = "owner_id")
         var owner: Owner? = null,

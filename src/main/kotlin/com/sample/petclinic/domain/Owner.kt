@@ -1,7 +1,9 @@
 package com.sample.petclinic.domain
 
+import com.fasterxml.jackson.annotation.JsonManagedReference
 import com.sample.petclinic.data.AddOwnerParam
 import com.sample.petclinic.data.EditOwnerParam
+import java.util.HashSet
 import javax.persistence.*
 
 @Entity
@@ -21,6 +23,10 @@ class Owner(
 
         @Column(name = "telephone")
         var telephone: String? = null,
+
+        @JsonManagedReference
+        @OneToMany(cascade = [CascadeType.ALL], mappedBy = "owner", fetch = FetchType.EAGER)
+        var pets: MutableSet<Pet> = HashSet()
 ): BaseEntity() {
 
         fun updateOwner(editOwnerParam: EditOwnerParam) {
