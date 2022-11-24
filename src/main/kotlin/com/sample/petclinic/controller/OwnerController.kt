@@ -19,7 +19,7 @@ class OwnerController(val ownerService: OwnerService) {
 
     @GetMapping("/{ownerId}")
     fun owner(@PathVariable("ownerId") ownerId: Int): OwnerInfo {
-        return ownerService.owner(ownerId);
+        return ownerService.owner(ownerId)
     }
 
     @GetMapping("/find/{lastName}")

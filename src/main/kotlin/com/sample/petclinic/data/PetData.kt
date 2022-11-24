@@ -3,6 +3,7 @@ package com.sample.petclinic.data
 import com.sample.petclinic.domain.Owner
 import com.sample.petclinic.domain.Pet
 import com.sample.petclinic.domain.PetType
+import org.springframework.format.annotation.DateTimeFormat
 import java.time.LocalDate
 
 data class PetData(
@@ -42,3 +43,10 @@ data class PetInfo(
         }
     }
 }
+
+data class AddPetParam(
+        val name: String?,
+        @DateTimeFormat(pattern = "yyyy-MM-dd")
+        val birthDate: LocalDate?,
+        val type: String
+)

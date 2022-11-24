@@ -1,13 +1,11 @@
 package com.sample.petclinic.repository
 
-import com.sample.petclinic.domain.Pet
+import com.sample.petclinic.domain.PetType
 import org.springframework.data.repository.Repository
 import org.springframework.transaction.annotation.Transactional
 
-interface PetRepository: Repository<Pet, Int> {
+interface PetTypeRepository: Repository<PetType, Int> {
 
     @Transactional(readOnly = true)
-    fun findAll(): List<Pet>
-
-    fun save(pet: Pet): Pet
+    fun findByName(name: String): PetType
 }
