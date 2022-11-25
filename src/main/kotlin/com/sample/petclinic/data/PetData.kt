@@ -57,3 +57,10 @@ fun AddPetParam.toEntity(owner: Owner, petType: PetType) = Pet(
         type = petType,
         owner = owner
 )
+
+data class EditPetParam(
+        val name: String?,
+        @DateTimeFormat(pattern = "yyyy-MM-dd")
+        val birthDate: LocalDate?,
+        val type: String
+)

@@ -9,5 +9,8 @@ interface PetRepository: Repository<Pet, Int> {
     @Transactional(readOnly = true)
     fun findAll(): List<Pet>
 
+    @Transactional(readOnly = true)
+    fun findById(id: Int): Pet
+
     fun save(pet: Pet): Pet
 }

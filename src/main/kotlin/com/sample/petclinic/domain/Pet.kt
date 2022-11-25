@@ -1,6 +1,7 @@
 package com.sample.petclinic.domain
 
 import com.fasterxml.jackson.annotation.JsonBackReference
+import com.sample.petclinic.data.EditPetParam
 import org.springframework.format.annotation.DateTimeFormat
 import java.time.LocalDate
 import javax.persistence.*
@@ -23,4 +24,10 @@ class Pet(
         @ManyToOne
         @JoinColumn(name = "owner_id")
         var owner: Owner? = null,
-) : BaseEntity()
+) : BaseEntity() {
+        fun updatePet(editPetParam: EditPetParam, petType: PetType) {
+                this.name = editPetParam.name ?: this.name
+                this.birthDate = editPetParam.birthDate ?: this.birthDate
+                this.type = petType
+        }
+}

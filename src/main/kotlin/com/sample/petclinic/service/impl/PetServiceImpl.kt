@@ -1,6 +1,7 @@
 package com.sample.petclinic.service.impl
 
 import com.sample.petclinic.data.AddPetParam
+import com.sample.petclinic.data.EditPetParam
 import com.sample.petclinic.data.PetData
 import com.sample.petclinic.data.toEntity
 import com.sample.petclinic.domain.Pet
@@ -28,5 +29,13 @@ class PetServiceImpl(
 
         val pet = addPetParam.toEntity(owner, petType)
         return PetData.fromEntity(petRepository.save(pet))
+    }
+
+    override fun editPet(petId: Int, editPetParam: EditPetParam): PetData {
+        val petType = petTypeRepository.findByName(editPetParam.type)
+        val pet = petRepository.findById(petId)
+
+        pet.updatePet(editPetParam, petType)
+        return PetData.fromEntity(pet)
     }
 }

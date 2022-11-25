@@ -1,6 +1,7 @@
 package com.sample.petclinic.controller
 
 import com.sample.petclinic.data.AddPetParam
+import com.sample.petclinic.data.EditPetParam
 import com.sample.petclinic.data.PetData
 import com.sample.petclinic.repository.PetRepository
 import com.sample.petclinic.service.PetService
@@ -23,5 +24,10 @@ class PetController(val petService: PetService) {
     @PostMapping("/{ownerId}/new")
     fun addPet(@PathVariable("ownerId") ownerId: Int, @Valid addPetParam: AddPetParam): PetData {
         return petService.addPet(ownerId, addPetParam)
+    }
+
+    @PostMapping("/{petId}/edit")
+    fun editPet(@PathVariable("petId") petId: Int, @Valid editPetParam: EditPetParam): PetData {
+        return petService.editPet(petId, editPetParam)
     }
 }
