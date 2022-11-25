@@ -2,6 +2,7 @@ package com.sample.petclinic.service.impl
 
 import com.sample.petclinic.data.AddPetParam
 import com.sample.petclinic.data.PetData
+import com.sample.petclinic.data.toEntity
 import com.sample.petclinic.domain.Pet
 import com.sample.petclinic.repository.OwnerRepository
 import com.sample.petclinic.repository.PetRepository
@@ -25,13 +26,7 @@ class PetServiceImpl(
         val owner = ownerRepository.findById(ownerId)
         val petType = petTypeRepository.findByName(addPetParam.type)
 
-        val pet = Pet(
-                name = addPetParam.name,
-                birthDate = addPetParam.birthDate,
-                type = petType,
-                owner = owner
-        )
-
+        val pet = addPetParam.toEntity(owner, petType)
         return PetData.fromEntity(petRepository.save(pet))
     }
 }

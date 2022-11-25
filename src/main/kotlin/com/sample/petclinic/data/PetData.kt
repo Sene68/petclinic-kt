@@ -50,3 +50,10 @@ data class AddPetParam(
         val birthDate: LocalDate?,
         val type: String
 )
+
+fun AddPetParam.toEntity(owner: Owner, petType: PetType) = Pet(
+        name = name,
+        birthDate = birthDate,
+        type = petType,
+        owner = owner
+)
